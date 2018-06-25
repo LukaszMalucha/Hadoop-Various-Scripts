@@ -6,7 +6,7 @@ from mrjob.step import MRStep
 
 class RatingsBreakdown(MRJob):
     def steps(self):
-        return [
+        return [                                                                ## mr steps
             MRStep(mapper=self.mapper_get_ratings,
             reducer=self.reducer_count_ratings)
             ]
