@@ -4,7 +4,7 @@ from mrjob.job import MRJob
 from mrjob.step import MRStep
 
 
-class RatingsBreakdown(MRJob):
+class RatingsCountBreakdown(MRJob):
     def steps(self):
         return [                                                                ## mr steps
             MRStep(mapper=self.mapper_get_ratings,
@@ -15,10 +15,10 @@ class RatingsBreakdown(MRJob):
 
     def mapper_get_ratings(self, _,line):                                       ## three params - self, possible key reducer, each input line of data
         (userID, movieID, rating, timestamp) = line.split('\t')                 ## split with tab character
-        yield movieID, 1                                                        ## key-value pair (rating and 1 for a count)
+        yield movieID, 1                                                        ## key-value pair (movie ID and 1 for a count)
         
     def reducer_count_ratings(self, key, values):
-        yield str (sum(values)).zfill(5), key                                   ## zero-fill up to 5 digits
+        yield str(sum(values)).zfill(5), key                                   ## zero-fill up to 5 digits for proper sorting
     
     def reducer_sorted_output(self, count, movies):
         for movie in movies:
@@ -26,4 +26,4 @@ class RatingsBreakdown(MRJob):
 
 
 if __name__ == '__main__':
-    RatingsBreakdown.run()
+    RatingsCountBreakdown.run()
