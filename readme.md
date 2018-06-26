@@ -26,7 +26,7 @@ pip install mrjob==0.5.11
 
 yum install nano
 
-### MapReduce
+### MAPREDUCE
 
 ##### Dataset # 1 - MovieLens 100K Dataset
 https://grouplens.org/datasets/movielens/
@@ -41,7 +41,7 @@ python RatingsBreakdown.py u.dataset
 python MostPopularMovie.py -r hadoop --hadoop-streaming-jar/usr/hdp/current/hadoop-mapreduce-client/hadopp-streaming.jar u.data
 
 
-### Pig
+### PIG
 
 
 ##### Dataset # 1 - MovieLens 100K Dataset
@@ -51,3 +51,4 @@ https://grouplens.org/datasets/movielens/
 ##### Scripts:
 pig/*
 
+### SPARK

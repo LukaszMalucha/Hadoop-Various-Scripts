@@ -1,0 +1,8 @@
+rdd.map(lambda x: x*x)    
+
+==
+
+def squareIt(x):
+    return x*x
+    
+    
