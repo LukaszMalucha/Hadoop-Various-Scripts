@@ -65,3 +65,23 @@ movie_recommend.py
 #### cmd
 LOAD DATA LOCAL INPATH '${env:HOME}/ml-100k/u.data'
 OVERWRITE INTO TABLE ratings;
+
+
+### SQOOP
+
+##### HDFS data import with explicit mysql driver
+sqoop import --connect jdbc:mysql://localhost/movielens --driver com.mysql.jdbc.Driver --table movies
+
+##### Direct HIVE import
+sqoop import --connect jdbc:mysql://localhost/movielens --driver com.mysql.jdbc.Driver --table movies --hive-import
+
+##### Data export (target table must already exist in MySQL)
+
+sqoop export --connect jdbc:mysql://localhost/movielens -m 1 --driver com.mysql.jdbc.Driver --table exported_movies --export-dir
+/apps/hive/warehouse/movies --input-fields-terminated-by '\0001'
+
+
+##### login
+
+mysql -u root -p 
+default password: hadoop
