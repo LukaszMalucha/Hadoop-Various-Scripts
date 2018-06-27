@@ -59,3 +59,9 @@ spark/*
 ##### Movie Recommendation with ALS:
 export SPARK_MAJOR_VERSION=2
 movie_recommend.py
+
+### HIVE
+
+#### cmd
+LOAD DATA LOCAL INPATH '${env:HOME}/ml-100k/u.data'
+OVERWRITE INTO TABLE ratings;
