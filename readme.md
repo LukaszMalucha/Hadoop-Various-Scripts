@@ -52,3 +52,10 @@ https://grouplens.org/datasets/movielens/
 pig/*
 
 ### SPARK
+
+##### Scripts:
+spark/*
+
+##### Movie Recommendation with ALS:
+export SPARK_MAJOR_VERSION=2
+movie_recommend.py
