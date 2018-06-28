@@ -51,14 +51,6 @@ https://grouplens.org/datasets/movielens/
 ##### Scripts:
 pig/*
 
-### SPARK
-
-##### Scripts:
-spark/*
-
-##### Movie Recommendation with ALS:
-export SPARK_MAJOR_VERSION=2
-movie_recommend.py
 
 ### HIVE
 
@@ -85,3 +77,32 @@ sqoop export --connect jdbc:mysql://localhost/movielens -m 1 --driver com.mysql.
 
 mysql -u root -p 
 default password: hadoop
+
+
+### SPARK
+
+##### Scripts:
+spark/*
+
+##### Movie Recommendation with ALS:
+export SPARK_MAJOR_VERSION=2
+movie_recommend.py
+
+
+### MONGODB WITH SPARK
+
+##### Scripts:
+mongoDB_spark/*
+
+##### Install MongoDB
+su root
+cd /var/lib/ambari-server/resources/stacks
+cd HDP
+cd 2.5 
+cd services
+git clone https://github.com/nikunjness/mongo-ambari.git
+sudo services ambari restart
+
+Ambari -> Actions -> Add Service --> MongoDB
+
+pip intall pymongo
