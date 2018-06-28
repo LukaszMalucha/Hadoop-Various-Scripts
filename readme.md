@@ -106,3 +106,17 @@ sudo services ambari restart
 Ambari -> Actions -> Add Service --> MongoDB
 
 pip intall pymongo
+
+
+### FLUME WITH SPARK
+
+##### Scripts:
+flume/*
+
+##### Flume Config:
+mkdir checkpoint
+export SPARK_MAJOR_VERSION=2
+spark-submit --packages org.apache.spark:spark-streaming-flume_2.11:2.0.0 SparkFlume.py
+cd /usr/hdp/current/flume-server/
+bin/flume-ng agent --conf conf --conf-file ~/sparkstreamingflume.conf --name a1
+
